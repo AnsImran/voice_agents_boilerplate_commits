@@ -6,6 +6,9 @@ from livekit.agents import Agent, AgentServer, AgentSession, JobContext, room_io
 from livekit.plugins import noise_cancellation, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 from livekit.agents import llm, stt, tts, inference
+############################################################
+from tools import lookup_ticket
+############################################################
 
 load_dotenv()
 
@@ -35,6 +38,9 @@ What you don't do:
 - If asked to fix an issue or access an account, kindly say a live agent will take care of it,
   and carry on.
 """,
+            ############################################################
+            tools        = [lookup_ticket],
+            ############################################################
         )
 
 
