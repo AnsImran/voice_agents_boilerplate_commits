@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from livekit import agents
 from livekit.agents import Agent, AgentServer, AgentSession, JobContext, room_io
 from livekit.plugins import noise_cancellation, silero
+from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
 load_dotenv()
 
@@ -21,10 +22,11 @@ server = AgentServer()
 @server.rtc_session()
 async def entrypoint(ctx: JobContext):
     session = AgentSession(
-        stt = "assemblyai/universal-streaming:en",
-        llm = "openai/gpt-4.1-mini",
-        tts = "cartesia/sonic-3",
-        vad = silero.VAD.load(),
+        stt            = "assemblyai/universal-streaming:en",
+        llm            = "openai/gpt-4.1-mini",
+        tts            = "cartesia/sonic-3",
+        vad            = silero.VAD.load(),
+        turn_detection = MultilingualModel(),  # Semantic turn detection
     )
 
     await session.start(
