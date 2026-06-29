@@ -11,7 +11,6 @@ load_dotenv()
 
 class Assistant(Agent):
     def __init__(self) -> None:
-        ############################################################
         super().__init__(
             instructions = """\
 You are the virtual receptionist for Parachute Technologies support. Your only job is to
@@ -36,7 +35,6 @@ What you don't do:
   and carry on.
 """,
         )
-        ############################################################
 
 
 server = AgentServer()
