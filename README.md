@@ -9,6 +9,10 @@ ticket number, looks it up in ConnectWise, and routes the call to a live agent.
   Cartesia voices, listen to them, and set the one that works best for us as the TTS voice ID.
   Further information is in the transcript of **video 4** ("Give Your Voice AI Personality and
   Failover Protection").
+- **Watch video 5 and add observability + metrics.** Haven't watched the fifth video yet ("Deploy
+  Voice AI Agents to Production with Full Observability") — it covers agent observability, metrics,
+  deployment, latency optimization, and preemptive generation. Watch it and implement the relevant
+  pieces. Likely a second-pass item, but definitely worth doing — at least some of it we'll want.
 
 ## To Test
 
