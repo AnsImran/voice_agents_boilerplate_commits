@@ -3,6 +3,13 @@
 A LiveKit voice agent for the support line: it asks the caller for their 6-digit
 ticket number, looks it up in ConnectWise, and routes the call to a live agent.
 
+## To Do
+
+- **Pick the agent's voice (Cartesia / TTS).** Go to the LiveKit documentation, browse the available
+  Cartesia voices, listen to them, and set the one that works best for us as the TTS voice ID.
+  Further information is in the transcript of **video 4** ("Give Your Voice AI Personality and
+  Failover Protection").
+
 ## To Test
 
 ### Semantic turn detection
