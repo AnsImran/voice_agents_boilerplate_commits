@@ -5,6 +5,9 @@ from livekit import agents
 from livekit.agents import Agent, AgentServer, AgentSession, JobContext, room_io
 from livekit.plugins import noise_cancellation, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
+############################################################
+from livekit.agents import llm, stt, tts, inference
+############################################################
 
 load_dotenv()
 
@@ -43,9 +46,20 @@ server = AgentServer()
 @server.rtc_session()
 async def entrypoint(ctx: JobContext):
     session = AgentSession(
-        stt            = "assemblyai/universal-streaming:en",
-        llm            = "openai/gpt-4.1-mini",
-        tts            = "cartesia/sonic-3",
+        ############################################################
+        stt            = stt.FallbackAdapter([
+            inference.STT.from_model_string("assemblyai/universal-streaming:en"),
+            inference.STT.from_model_string("deepgram/nova-3"),
+        ]),
+        llm            = llm.FallbackAdapter([
+            inference.LLM(model = "openai/gpt-4.1-mini"),
+            inference.LLM(model = "google/gemini-2.5-flash"),
+        ]),
+        tts            = tts.FallbackAdapter([
+            inference.TTS.from_model_string("cartesia/sonic-3"),
+            inference.TTS.from_model_string("inworld/inworld-tts-1"),
+        ]),
+        ############################################################
         vad            = silero.VAD.load(),
         turn_detection = MultilingualModel(),  # Semantic turn detection
     )
