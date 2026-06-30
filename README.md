@@ -8,11 +8,15 @@ ticket number, looks it up in ConnectWise, and routes the call to a live agent.
 - **Pick the agent's voice (Cartesia / TTS).** Go to the LiveKit documentation, browse the available
   Cartesia voices, listen to them, and set the one that works best for us as the TTS voice ID.
   Further information is in the transcript of **video 4** ("Give Your Voice AI Personality and
-  Failover Protection").
+  Failover Protection"). *(Currently set to the workshop's Cartesia voices — a main voice plus a
+  different one for the manager agent; swap to our own pick later.)*
 - **Watch video 5 and add observability + metrics.** Haven't watched the fifth video yet ("Deploy
   Voice AI Agents to Production with Full Observability") — it covers agent observability, metrics,
   deployment, latency optimization, and preemptive generation. Watch it and implement the relevant
   pieces. Likely a second-pass item, but definitely worth doing — at least some of it we'll want.
+- **Recording on/off via observability.** Per **video 7**, LiveKit's agent observability lets you turn
+  session recording on or off (e.g. start a session with `record=False`). Use this to control which
+  calls get recorded.
 
 ## To Test
 
