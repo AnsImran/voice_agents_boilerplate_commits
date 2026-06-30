@@ -1,0 +1,11 @@
+.venv
+.env
+.env.*
+!.env.example
+temp/
+.git
+.gitignore
+__pycache__/
+*.pyc
+*.pyo
+livekit.toml
